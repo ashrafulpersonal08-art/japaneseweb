@@ -945,6 +945,13 @@ words: [
 { id:"n5_676", japanese:"おととい", english:"the day before yesterday", dateAdded:"2026-10-11" },
 { id:"n5_677", japanese:"あさって", english:"the day after tomorrow", dateAdded:"2026-10-11" },
 { id:"n5_678", japanese:"おわります", english:"to finish", dateAdded:"2026-10-11" },
+{ id:"n5_679", japanese:"けさ", english:"this morning", dateAdded:"2026-10-12" },
+{ id:"n5_680", japanese:"こんばん", english:"this evening / tonight", dateAdded:"2026-10-12" },
+{ id:"n5_681", japanese:"やすみ", english:"rest / holiday / day off", dateAdded:"2026-10-12" },
+{ id:"n5_682", japanese:"ひるやすみ", english:"lunchtime / lunch break", dateAdded:"2026-10-12" },
+{ id:"n5_683", japanese:"まいあさ", english:"every morning", dateAdded:"2026-10-12" },
+{ id:"n5_684", japanese:"まいばん", english:"every night", dateAdded:"2026-10-12" },
+
 ]
 },
 N4: { locked: false, words: [] },
@@ -1500,10 +1507,11 @@ isNew:true,
 dateAdded:"2026-10-10"
 },
 {
-id:"k5_052", kanji:"何", onyomi:"", kunyomi:"なに / なん", rendaku:"",
+id:"k5_052", kanji:"何", onyomi:"カ", kunyomi:"なに / なん", rendaku:"",
 english:"What", say:"なに", examples:[
 {rd:"なに",type:"kun",ja:"なに",en:"What",reading:"なに",meaning:"What",seg:[["何","なに","nani",1]]},
-{rd:"なん",type:"kun",ja:"なんじ",en:"What time",reading:"なんじ",meaning:"What time",seg:[["何","なん","nan",1],["時","じ","ji",0]]}
+{rd:"なん",type:"kun",ja:"なんじ",en:"What time",reading:"なんじ",meaning:"What time",seg:[["何","なん","nan",1],["時","じ","ji",0]]},
+{rd:"カ",type:"on",ja:"きか",en:"Geometry",reading:"きか",meaning:"Geometry",seg:[["幾","き","ki",0],["何","か","ka",1]]}
 ],
 strokes:['M47.7,20.2c0.3,3.1-0.3,5.6-1.2,8.3c-5.8,17.4-14.2,34.3-30,54.8','M39.3,53.6c1.8,2.2,2.3,4.5,2.3,8.1c0,13.9-0.2,45.2-0.2,65.5c0,3.8,0,7.3,0,10.1','M57.1,39.1c2.6,0.7,6.9,1,9.4,0.7c19.4-1.9,49.7-7,67.9-8.6c4.2-0.4,6.8,0.4,8.9,0.7','M60,64.6c1.1,1.1,1.8,2.4,2,3.2c1,6,2.1,14.9,3.3,23.9c0.4,3,0.4,3,0.7,5.5','M63.5,66.9c9.2-1.7,22.2-4.4,29-5.5c4.6-0.7,6.5,0.5,5.4,5.2c-1.3,5.7-3.7,15.2-4.8,20.8','M66.9,92.7c5.4-0.6,13.9-1.8,21.2-2.7c2.8-0.3,5.6-0.7,8.4-1','M122.2,36.3c1.5,1.5,2.6,3.2,2.7,7.3c0.5,19.8-0.3,82.8-0.3,89.6c0,15.7-9.3,4-13.5-1.1'],
 isNew:true,
@@ -1511,8 +1519,8 @@ dateAdded:"2026-10-11"
 },
 {
 id:"k5_053", kanji:"前", onyomi:"ゼン", kunyomi:"まえ", rendaku:"",
-english:"Before / In front", say:"まえ", examples:[
-{rd:"まえ",type:"kun",ja:"まえ",en:"Before / In front",reading:"まえ",meaning:"Before / In front",seg:[["前","まえ","mae",1]]},
+english:"In front / Before", say:"まえ", examples:[
+{rd:"まえ",type:"kun",ja:"まえ",en:"In front / Before",reading:"まえ",meaning:"In front / Before",seg:[["前","まえ","mae",1]]},
 {rd:"ゼン",type:"on",ja:"ごぜん",en:"AM / Morning",reading:"ごぜん",meaning:"AM / Morning",seg:[["午","ご","go",0],["前","ぜん","zen",1]]}
 ],
 strokes:['M49.2,21.3c4.9,3,12.7,12.5,13.9,17.2','M106.7,17.6c0.4,1.7,0.1,3.3-0.8,4.7c-3.1,5-8.8,12.7-12.6,16.6','M19.6,48.8c3.9,1.1,11,1.4,14.8,1.1c31.8-2.7,58.4-5.3,92-6.8c6.4-0.3,10.3,0.5,13.5,1','M36.2,66.7c1.6,1.9,2.4,4.3,2.4,6.1c0,4.5,0.1,42.1,0.1,59.6c0,4.7,0,8-0.1,8.8','M39.6,68.7c3.4-0.6,19.6-3.4,25.2-4.3c3.2-0.5,5.2,1.6,5.2,4.8c0,1.5-0.2,45.2-0.2,65.5c0,8-5.6,4.4-8.7,0.8','M40.6,88.1c8.4-1.1,20-2.7,27.3-3.4','M40.5,107.8c6.5-0.7,19.5-2.3,27-2.8','M91.4,69.8c1.8,1.8,2.6,3.9,2.6,6.7c0,13.1,0,22.2-0.1,27.3c-0.1,2.2-0.1,4.1-0.2,5.9','M115.7,57.6c1.8,1.8,3,4.2,3,7.4c0,21.4,0,63,0,70.3c0,12.7-8.7,1.5-11-0.4'],
@@ -1520,11 +1528,12 @@ isNew:true,
 dateAdded:"2026-10-11"
 },
 {
-id:"k5_054", kanji:"後", onyomi:"ゴ / コウ", kunyomi:"あと / うし / のち", rendaku:"",
-english:"After / Behind", say:"あと", examples:[
-{rd:"あと",type:"kun",ja:"あと",en:"After / Later",reading:"あと",meaning:"After / Later",seg:[["後","あと","ato",1]]},
-{rd:"うし",type:"kun",ja:"うしろ",en:"Behind",reading:"うしろ",meaning:"Behind",seg:[["後","うし","ushi",1],["ろ","ろ","ro",0]]},
-{rd:"のち",type:"kun",ja:"のちほど",en:"Later / Afterwards",reading:"のちほど",meaning:"Later / Afterwards",seg:[["後","のち","nochi",1],["ほど","ほど","",0]]},
+id:"k5_054", kanji:"後", onyomi:"ゴ / コウ", kunyomi:"あと / うし / のち / おく", rendaku:"",
+english:"After / Behind / Back / Later", say:"あと", examples:[
+{rd:"あと",type:"kun",ja:"あと",en:"After",reading:"あと",meaning:"After",seg:[["後","あと","ato",1]]},
+{rd:"うし",type:"kun",ja:"うしろ",en:"Behind / Back",reading:"うしろ",meaning:"Behind / Back",seg:[["後","うし","ushi",1],["ろ","ろ","",0]]},
+{rd:"のち",type:"kun",ja:"のちほど",en:"Later",reading:"のちほど",meaning:"Later",seg:[["後","のち","nochi",1],["ほど","ほど","",0]]},
+{rd:"おく",type:"kun",ja:"ておくれ",en:"Too late",reading:"ておくれ",meaning:"Too late",seg:[["手","て","te",0],["後","おく","oku",1],["れ","れ","",0]]},
 {rd:"ゴ",type:"on",ja:"ごご",en:"PM / Afternoon",reading:"ごご",meaning:"PM / Afternoon",seg:[["午","ご","go",0],["後","ご","go",1]]},
 {rd:"コウ",type:"on",ja:"こうはん",en:"Latter half",reading:"こうはん",meaning:"Latter half",seg:[["後","こう","kou",1],["半","はん","han",0]]}
 ],
@@ -1556,16 +1565,17 @@ isNew:true,
 dateAdded:"2026-10-11"
 },
 {
-id:"k5_057", kanji:"右", onyomi:"ユウ / ウ", kunyomi:"みぎ", rendaku:"",
+id:"k5_057", kanji:"右", onyomi:"ウ / ユウ", kunyomi:"みぎ", rendaku:"",
 english:"Right", say:"みぎ", examples:[
 {rd:"みぎ",type:"kun",ja:"みぎ",en:"Right",reading:"みぎ",meaning:"Right",seg:[["右","みぎ","migi",1]]},
-{rd:"ユウ",type:"on",ja:"さゆう",en:"Left and right",reading:"さゆう",meaning:"Left and right",seg:[["左","さ","sa",0],["右","ゆう","yuu",1]]},
-{rd:"ウ",type:"on",ja:"うせつ",en:"Right turn",reading:"うせつ",meaning:"Right turn",seg:[["右","う","u",1],["折","せつ","setsu",0]]}
+{rd:"ウ",type:"on",ja:"うせつ",en:"Right turn",reading:"うせつ",meaning:"Right turn",seg:[["右","う","u",1],["折","せつ","setsu",0]]},
+{rd:"ユウ",type:"on",ja:"さゆう",en:"Left and right",reading:"さゆう",meaning:"Left and right",seg:[["左","さ","sa",0],["右","ゆう","yuu",1]]}
 ],
 strokes:['M78.5,31.6c0.9,1.6,1,3.3,0.4,5.9C72.8,61.7,58,89.5,37.1,109','M19.1,61.9c2.8,0.8,8.7,0.8,11.4,0.5c34.4-3.3,73-8.4,99.3-9.2c4.8-0.1,9.5,0.5,13.5,1.2','M61.3,97.6c1.1,1.1,2,2.8,2.3,4.3c1.4,7.3,3.5,24.5,4.5,33.4c0.4,3.2,0.6,4.1,0.6,5.2','M63.5,99.8c7.7-0.7,43.7-4.8,54.3-5.5c2.6-0.2,4.8,2.2,4.4,4c-1.5,7.5-5,26.4-6.6,34.1','M69,136.9c8.5-0.3,28.6-2.3,41.5-3.3c3.2-0.2,6.1-0.4,8.4-0.4'],
 isNew:true,
 dateAdded:"2026-10-11"
-}
+},
+
 ]
 },
 N4: { locked: false, kanji: [] },
@@ -3608,7 +3618,29 @@ quizzes:[
 {type:"B",q:"'I study in Japanese.' in Japanese?",options:["にほんごでべんきょうします。", "にほんごへべんきょうします。", "にほんごのべんきょうします。", "にほんごをべんきょうしました。"],answer:"にほんごでべんきょうします。",hint:"Language used → で"},
 {type:"B",q:"'What do you write with?' in Japanese?",options:["なんでかきますか。", "なにでかきますか。", "なんへかきますか。", "なんをかきますか。"],answer:"なんでかきますか。",hint:"なん before で (だ-row sound)"}
 ]
-}
+},
+{ id:"n5_g39", kw:"go de nan desu ka how do you say what is in english japanese language word sentence translate ごで なんですか 〜ごでなんですか ことば えいご にほんご ありがとう", rule:"「Word／Sentence」は 〜ごで なんですか", formula:"「Word／Sentence」+ は + 〜ご (language) + で + なんですか", meaning:"What is '~' in (language)? / How do you say '~' in (language)? — asking how to say a word or sentence in another language", note:"This question is used to ask how to say a word or a sentence in another language. The word or sentence being asked about is written in 「 」 and followed by は; then comes the language (えいご、にほんご) + で + なんですか. The で here is the で of 'in (a language)' (see N で V). なん is used before です (なん is used before a だ-row sound, see なん／なに). The answer repeats the word or sentence in the other language, in 「 」, followed by です: 「ありがとう」はえいごでなんですか。→「Thank you」です。 The same pattern works in both directions: Japanese → English (「ほん」はえいごでなんですか) and English → Japanese (「book」はにほんごでなんですか), and it works for a single word as well as for a phrase or greeting (「はじめまして」、「すみません」). Only えいご and にほんご are in the vocabulary list so far, so only these two languages are used in the examples, but any 〜ご (language) can take their place. English words appear inside 「 」 in some examples because the question is about translating them. In this textbook point, ありがとう is not a separate entry in the vocabulary list yet (it appears inside どうもありがとうございます), but it is used because it is the model example.",
+examples:[
+{ja:"「ほん」はえいごでなんですか。",en:"What is 'ほん' in English?",gloss:["「ほん」=book (the word being asked about)", "は=topic marker", "えいご=the English language", "で=in (a language)", "なん=what", "です=is", "か=question marker"],isNew:false,ans:[{"lab": "Answer", "ja": "「book」です。", "en": "It's 'book.'"}],kind:"wh"},
+{ja:"「book」はにほんごでなんですか。",en:"What is 'book' in Japanese?",gloss:["「book」=the English word being asked about", "は=topic marker", "にほんご=the Japanese language", "で=in (a language)", "なん=what", "です=is", "か=question marker"],isNew:false,ans:[{"lab": "Answer", "ja": "「ほん」です。", "en": "It's 'ほん.'"}],kind:"wh"},
+{ja:"「ありがとう」はえいごでなんですか。",en:"What is 'ありがとう' in English?",gloss:["「ありがとう」=thank you (the phrase being asked about)", "は=topic marker", "えいご=the English language", "で=in (a language)", "なん=what", "です=is", "か=question marker"],isNew:false,ans:[{"lab": "Answer", "ja": "「Thank you」です。", "en": "It's 'Thank you.'"}],kind:"wh"},
+{ja:"「Thank you」はにほんごでなんですか。",en:"What is 'Thank you' in Japanese?",gloss:["「Thank you」=the English phrase being asked about", "は=topic marker", "にほんご=the Japanese language", "で=in (a language)", "なん=what", "です=is", "か=question marker"],isNew:false,ans:[{"lab": "Answer", "ja": "「ありがとう」です。", "en": "It's 'ありがとう.'"}],kind:"wh"},
+{ja:"「びじゅつかん」はえいごでなんですか。",en:"What is 'びじゅつかん' in English?",gloss:["「びじゅつかん」=art museum (the word being asked about)", "は=topic marker", "えいご=the English language", "で=in (a language)", "なん=what", "です=is", "か=question marker"],isNew:false,ans:[{"lab": "Answer", "ja": "「art museum」です。", "en": "It's 'art museum.'"}],kind:"wh"},
+{ja:"「lunch break」はにほんごでなんですか。",en:"What is 'lunch break' in Japanese?",gloss:["「lunch break」=the English word being asked about", "は=topic marker", "にほんご=the Japanese language", "で=in (a language)", "なん=what", "です=is", "か=question marker"],isNew:false,ans:[{"lab": "Answer", "ja": "「ひるやすみ」です。", "en": "It's 'ひるやすみ.'"}],kind:"wh"},
+{ja:"「おととい」はえいごでなんですか。",en:"What is 'おととい' in English?",gloss:["「おととい」=the day before yesterday (the word being asked about)", "は=topic marker", "えいご=the English language", "で=in (a language)", "なん=what", "です=is", "か=question marker"],isNew:false,ans:[{"lab": "Answer", "ja": "「the day before yesterday」です。", "en": "It's 'the day before yesterday.'"}],kind:"wh"},
+{ja:"「tonight」はにほんごでなんですか。",en:"What is 'tonight' in Japanese?",gloss:["「tonight」=the English word being asked about", "は=topic marker", "にほんご=the Japanese language", "で=in (a language)", "なん=what", "です=is", "か=question marker"],isNew:false,ans:[{"lab": "Answer", "ja": "「こんばん」です。", "en": "It's 'こんばん.'"}],kind:"wh"},
+{ja:"「はじめまして」はえいごでなんですか。",en:"What is 'はじめまして' in English?",gloss:["「はじめまして」=nice to meet you (the phrase being asked about)", "は=topic marker", "えいご=the English language", "で=in (a language)", "なん=what", "です=is", "か=question marker"],isNew:false,ans:[{"lab": "Answer", "ja": "「Nice to meet you」です。", "en": "It's 'Nice to meet you.'"}],kind:"wh"},
+{ja:"「Excuse me」はにほんごでなんですか。",en:"What is 'Excuse me' in Japanese?",gloss:["「Excuse me」=the English phrase being asked about", "は=topic marker", "にほんご=the Japanese language", "で=in (a language)", "なん=what", "です=is", "か=question marker"],isNew:false,ans:[{"lab": "Answer", "ja": "「すみません」です。", "en": "It's 'すみません.'"}],kind:"wh"},
+{ja:"「やすみ」はえいごで「holiday」です。",en:"'やすみ' is 'holiday' in English.",gloss:["「やすみ」=holiday / day off (the word being explained)", "は=topic marker", "えいご=the English language", "で=in (a language)", "「holiday」=the English word", "です=is"],isNew:false}
+],
+quizzes:[
+{type:"A",q:"「ほん」は えいご ___ なんですか。 (What is 'ほん' in English?)",options:["で", "を", "へ", "の"],answer:"で",hint:"Language used → で"},
+{type:"A",q:"「くるま」はえいごで ___ ですか。 (What is 'くるま' in English?)",options:["なん", "なに", "だれ", "どこ"],answer:"なん",hint:"なん before です (だ-row sound)"},
+{type:"B",q:"'What is \"Thank you\" in Japanese?' in Japanese?",options:["「Thank you」はにほんごでなんですか。", "「Thank you」はにほんごをなんですか。", "「Thank you」はえいごでなんですか。", "「Thank you」はにほんごでだれですか。"],answer:"「Thank you」はにほんごでなんですか。",hint:"「word」は + language + で + なんですか"},
+{type:"B",q:"'What is \"えんぴつ\" in English?' in Japanese?",options:["「えんぴつ」はえいごでなんですか。", "「えんぴつ」はにほんごでなんですか。", "「えんぴつ」はえいごへなんですか。", "「えんぴつ」はえいごでどこですか。"],answer:"「えんぴつ」はえいごでなんですか。",hint:"えいご (English) + で + なんですか"}
+]
+},
+
 ]
 },
 N4:{label:"N4",locked:false,rules:[]},
