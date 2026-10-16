@@ -951,6 +951,17 @@ words: [
 { id:"n5_682", japanese:"ひるやすみ", english:"lunchtime / lunch break", dateAdded:"2026-10-12" },
 { id:"n5_683", japanese:"まいあさ", english:"every morning", dateAdded:"2026-10-12" },
 { id:"n5_684", japanese:"まいばん", english:"every night", dateAdded:"2026-10-12" },
+{ id:"n5_685", japanese:"ばんごう", english:"number", dateAdded:"2026-10-16" },
+{ id:"n5_686", japanese:"たいへんですね", english:"that's tough, isn't it? (used to express sympathy)", dateAdded:"2026-10-16" },
+{ id:"n5_687", japanese:"えーと", english:"well, let me see", dateAdded:"2026-10-16" },
+{ id:"n5_688", japanese:"いちれいよん", english:"104 (directory assistance / information)", dateAdded:"2026-10-16" },
+{ id:"n5_689", japanese:"おねがいします", english:"please (lit. ask for a favor)", dateAdded:"2026-10-16" },
+{ id:"n5_690", japanese:"かしこまりました", english:"certainly (sir, madam) / understood (polite)", dateAdded:"2026-10-16" },
+{ id:"n5_691", japanese:"おといあわせのばんごう", english:"the number being inquired about", dateAdded:"2026-10-16" },
+{ id:"n5_692", japanese:"[どうも]ありがとうございました", english:"thank you very much (past)", dateAdded:"2026-10-16" },
+{ id:"n5_693", japanese:"ニューヨーク", english:"New York", dateAdded:"2026-10-16" },
+{ id:"n5_694", japanese:"ペキン", english:"Beijing", dateAdded:"2026-10-16" },
+{ id:"n5_695", japanese:"ロンドン", english:"London", dateAdded:"2026-10-16" },
 
 ]
 },
@@ -3638,6 +3649,60 @@ quizzes:[
 {type:"A",q:"「くるま」はえいごで ___ ですか。 (What is 'くるま' in English?)",options:["なん", "なに", "だれ", "どこ"],answer:"なん",hint:"なん before です (だ-row sound)"},
 {type:"B",q:"'What is \"Thank you\" in Japanese?' in Japanese?",options:["「Thank you」はにほんごでなんですか。", "「Thank you」はにほんごをなんですか。", "「Thank you」はえいごでなんですか。", "「Thank you」はにほんごでだれですか。"],answer:"「Thank you」はにほんごでなんですか。",hint:"「word」は + language + で + なんですか"},
 {type:"B",q:"'What is \"えんぴつ\" in English?' in Japanese?",options:["「えんぴつ」はえいごでなんですか。", "「えんぴつ」はにほんごでなんですか。", "「えんぴつ」はえいごへなんですか。", "「えんぴつ」はえいごでどこですか。"],answer:"「えんぴつ」はえいごでなんですか。",hint:"えいご (English) + で + なんですか"}
+]
+},
+{ id:"n5_g40", kw:"ni agemasu kashimasu oshiemasu okurimasu kakemasu give lend teach send call phone recipient person place particle に へ あげます かします おしえます おくります でんわをかけます ともだち はは", rule:"N (person) に あげます etc.", formula:"N1 は + N2 (person; place for おくります／でんわをかけます) + に (へ also for a place) + N3 + を + あげます／かします／おしえます／おくります／でんわをかけます", meaning:"to (a person) — marks the receiver of giving, lending, teaching, sending or calling", note:"Verbs of giving — あげます (give), かします (lend), おしえます (teach) — need a person who receives the action, and that person is marked with に: やまださんはたなかさんにチョコレートをあげました。 The thing given, lent or taught is still marked with を, and the giver is the topic with は (often わたし, which is left out). This に marks the receiver (the person 'to' whom), not a time or a destination. あげます is used when the speaker (or someone on the speaker's side) gives to another person; it is not used when someone gives something to the speaker — that needs くれます, a separate point that is not in the vocabulary list yet, so it is not demonstrated here. With おくります (send) and でんわをかけます (make a phone call), a place can be used instead of a person (かいしゃにでんわをかけます。), and in this case へ is sometimes used instead of に (かいしゃへでんわをかけます。). Both に and へ are shown with places in the examples; with a person, に is used. The receiving side of the same actions is the next point (もらいます／かります／ならいます). Note: あげます, かします, おしえます, おくります and かけます do not have separate entries in the vocabulary list yet; they are used because this grammar point requires them.",
+examples:[
+{ja:"ともだちに",en:"to a friend",gloss:["ともだち=friend", "に=to (receiver marker)"],isNew:false},
+{ja:"かいしゃへ",en:"to the company",gloss:["かいしゃ=company", "へ=direction marker (place)"],isNew:false},
+{ja:"ははにはなをあげます。",en:"I give flowers to my mother.",gloss:["はは=my mother", "に=to (receiver marker)", "はな=flower", "を=object marker", "あげます=give"],isNew:false},
+{ja:"やまださんはたなかさんにチョコレートをあげました。",en:"Yamada-san gave chocolate to Tanaka-san.",gloss:["やまださん=Yamada-san", "は=topic marker", "たなかさん=Tanaka-san", "に=to (receiver marker)", "チョコレート=chocolate", "を=object marker", "あげました=gave (past of あげます)"],isNew:false},
+{ja:"だれにかばんをあげましたか。",en:"Who did you give the bag to?",gloss:["だれ=who", "に=to (receiver marker)", "かばん=bag", "を=object marker", "あげました=gave (past of あげます)", "か=question marker"],isNew:false,ans:[{"lab": "Answer", "ja": "ミラさんにあげました。", "en": "I gave it to Mira-san."}],kind:"wh"},
+{ja:"こどもにおかねをあげません。",en:"I don't give money to children.",gloss:["こども=child", "に=to (receiver marker)", "おかね=money", "を=object marker", "あげません=don't give (negative of あげます)"],isNew:false},
+{ja:"あさってグプタさんにカメラをかします。",en:"I will lend a camera to Gupta-san the day after tomorrow.",gloss:["あさって=the day after tomorrow", "グプタさん=Gupta-san", "に=to (receiver marker)", "カメラ=camera", "を=object marker", "かします=lend"],isNew:false},
+{ja:"せんせいにかさをかしませんでした。",en:"I did not lend an umbrella to my teacher.",gloss:["せんせい=teacher", "に=to (receiver marker)", "かさ=umbrella", "を=object marker", "かしませんでした=did not lend (past negative of かします)"],isNew:false},
+{ja:"ミラさんにえいごをおしえます。",en:"I teach English to Mira-san.",gloss:["ミラさん=Mira-san", "に=to (receiver marker)", "えいご=the English language", "を=object marker", "おしえます=teach"],isNew:false},
+{ja:"まいばんこどもににほんごをおしえます。",en:"I teach Japanese to a child every night.",gloss:["まいばん=every night", "こども=child", "に=to (receiver marker)", "にほんご=the Japanese language", "を=object marker", "おしえます=teach"],isNew:false},
+{ja:"たなかさんはグプタさんにえいごをおしえましたか。",en:"Did Tanaka-san teach English to Gupta-san?",gloss:["たなかさん=Tanaka-san", "は=topic marker", "グプタさん=Gupta-san", "に=to (receiver marker)", "えいご=the English language", "を=object marker", "おしえました=taught (past of おしえます)", "か=question marker"],isNew:false,ans:[{"lab": "Answer", "ja": "はい、おしえました。", "en": "Yes, (Tanaka-san) taught (Gupta-san) English."}],kind:"yn"},
+{ja:"せんせいにカードをおくります。",en:"I send a card to my teacher.",gloss:["せんせい=teacher", "に=to (receiver marker)", "カード=card", "を=object marker", "おくります=send"],isNew:false},
+{ja:"インドにほんをおくりました。",en:"I sent a book to India.",gloss:["インド=India", "に=to (place)", "ほん=book", "を=object marker", "おくりました=sent (past of おくります)"],isNew:false},
+{ja:"うちへおかねをおくります。",en:"I send money home.",gloss:["うち=home", "へ=direction marker (place)", "おかね=money", "を=object marker", "おくります=send"],isNew:false},
+{ja:"ひるやすみにともだちにでんわをかけます。",en:"I call a friend during the lunch break.",gloss:["ひるやすみ=lunch break", "に=time marker", "ともだち=friend", "に=to (receiver marker)", "でんわ=telephone call", "を=object marker", "かけます=make (a call)"],isNew:false},
+{ja:"かいしゃにでんわをかけます。",en:"I call the company.",gloss:["かいしゃ=company", "に=to (place)", "でんわ=telephone call", "を=object marker", "かけます=make (a call)"],isNew:false},
+{ja:"だいがくへでんわをかけます。",en:"I call the university.",gloss:["だいがく=university", "へ=direction marker (place)", "でんわ=telephone call", "を=object marker", "かけます=make (a call)"],isNew:false}
+],
+quizzes:[
+{type:"A",q:"わたしは ともだち ___ はなをあげます。 (I give flowers to a friend.)",options:["に", "で", "から", "の"],answer:"に",hint:"Person who receives → に"},
+{type:"A",q:"せんせいにほん ___ かしました。 (I lent a book to my teacher.)",options:["を", "に", "で", "も"],answer:"を",hint:"The thing lent → を"},
+{type:"A",q:"かいしゃ ___ でんわをかけます。 (I call the company.)",options:["に", "から", "で", "を"],answer:"に",hint:"Place instead of a person → に (へ is also possible)"},
+{type:"B",q:"'I taught English to Mira-san.' in Japanese?",options:["ミラさんにえいごをおしえました。", "ミラさんからえいごをおしえました。", "ミラさんにえいごをならいました。", "ミラさんでえいごをおしえました。"],answer:"ミラさんにえいごをおしえました。",hint:"おしえます = teach; receiver + に"},
+{type:"B",q:"'I will lend a camera to Gupta-san.' in Japanese?",options:["グプタさんにカメラをかします。", "グプタさんにカメラをかります。", "グプタさんでカメラをかします。", "グプタさんをカメラにかします。"],answer:"グプタさんにカメラをかします。",hint:"かします = lend; person + に, thing + を"}
+]
+},
+{ id:"n5_g41", kw:"ni moraimasu karimasu naraimasu receive borrow learn from source person organization particle に から もらいます かります ならいます ぎんこう だいがく", rule:"N (person) に もらいます etc.", formula:"N1 は + N2 (person／organization) + に／から (organization: only から) + N3 + を + もらいます／かります／ならいます", meaning:"from (a person) — marks the source of receiving, borrowing or learning", note:"Verbs of receiving — もらいます (receive), かります (borrow), ならいます (learn) — describe the action from the receiving side. The receiver is the topic with は (often わたし, which is left out), the thing received is marked with を, and the person it comes from is marked with に: せんせいにほんをもらいました。 Be careful: here に marks the SOURCE ('from'), whereas with あげます／かします／おしえます に marks the receiver ('to'). から can be used instead of に for the source: やまださんからチョコレートをもらいました。 When the source is an organization such as a bank, a company, a school or a university, only から is used and に is not (ぎんこうからおかねをかりました。). The three verbs are the receiving-side partners of the previous point: あげます ↔ もらいます, かします ↔ かります, おしえます ↔ ならいます. For example, やまださんはたなかさんにチョコレートをあげました。 and たなかさんはやまださんからチョコレートをもらいました。 describe the same event. ならいます is used for learning from a person (a teacher, a friend); it does not mean studying alone (べんきょうします). Note: もらいます, かります and ならいます do not have separate entries in the vocabulary list yet; they are used because this grammar point requires them.",
+examples:[
+{ja:"せんせいに",en:"from the teacher",gloss:["せんせい=teacher", "に=from (source marker)"],isNew:false},
+{ja:"ぎんこうから",en:"from the bank",gloss:["ぎんこう=bank", "から=from (source marker)"],isNew:false},
+{ja:"ちちにネクタイをもらいます。",en:"I receive a necktie from my father.",gloss:["ちち=my father", "に=from (source marker)", "ネクタイ=necktie", "を=object marker", "もらいます=receive"],isNew:false},
+{ja:"わたしはせんせいにほんをもらいました。",en:"I received a book from my teacher.",gloss:["わたし=I", "は=topic marker", "せんせい=teacher", "に=from (source marker)", "ほん=book", "を=object marker", "もらいました=received (past of もらいます)"],isNew:false},
+{ja:"ミラさんはやまださんからチョコレートをもらいました。",en:"Mira-san received chocolate from Yamada-san.",gloss:["ミラさん=Mira-san", "は=topic marker", "やまださん=Yamada-san", "から=from (source marker)", "チョコレート=chocolate", "を=object marker", "もらいました=received (past of もらいます)"],isNew:false},
+{ja:"だいがくからカードをもらいました。",en:"I received a card from the university.",gloss:["だいがく=university", "から=from (organization: only から)", "カード=card", "を=object marker", "もらいました=received (past of もらいます)"],isNew:false},
+{ja:"だれにワインをもらいましたか。",en:"Who did you get the wine from?",gloss:["だれ=who", "に=from (source marker)", "ワイン=wine", "を=object marker", "もらいました=received (past of もらいます)", "か=question marker"],isNew:false,ans:[{"lab": "Answer", "ja": "グプタさんにもらいました。", "en": "I got it from Gupta-san."}],kind:"wh"},
+{ja:"ともだちにじしょをかります。",en:"I borrow a dictionary from a friend.",gloss:["ともだち=friend", "に=from (source marker)", "じしょ=dictionary", "を=object marker", "かります=borrow"],isNew:false},
+{ja:"グプタさんにカメラをかりました。",en:"I borrowed a camera from Gupta-san.",gloss:["グプタさん=Gupta-san", "に=from (source marker)", "カメラ=camera", "を=object marker", "かりました=borrowed (past of かります)"],isNew:false},
+{ja:"ぎんこうからおかねをかりました。",en:"I borrowed money from the bank.",gloss:["ぎんこう=bank", "から=from (organization: only から)", "おかね=money", "を=object marker", "かりました=borrowed (past of かります)"],isNew:false},
+{ja:"たなかさんからかさをかりましたか。",en:"Did you borrow an umbrella from Tanaka-san?",gloss:["たなかさん=Tanaka-san", "から=from (source marker)", "かさ=umbrella", "を=object marker", "かりました=borrowed (past of かります)", "か=question marker"],isNew:false,ans:[{"lab": "Answer", "ja": "はい、かりました。", "en": "Yes, I borrowed it."}],kind:"yn"},
+{ja:"としょかんからざっしをかりませんでした。",en:"I did not borrow a magazine from the library.",gloss:["としょかん=library", "から=from (organization: only から)", "ざっし=magazine", "を=object marker", "かりませんでした=did not borrow (past negative of かります)"],isNew:false},
+{ja:"ミラさんににほんごをならいます。",en:"I learn Japanese from Mira-san.",gloss:["ミラさん=Mira-san", "に=from (source marker)", "にほんご=the Japanese language", "を=object marker", "ならいます=learn"],isNew:false},
+{ja:"まいあさたなかさんにえいごをならいます。",en:"I learn English from Tanaka-san every morning.",gloss:["まいあさ=every morning", "たなかさん=Tanaka-san", "に=from (source marker)", "えいご=the English language", "を=object marker", "ならいます=learn"],isNew:false},
+{ja:"やまださんからにほんごをならいました。",en:"I learned Japanese from Yamada-san.",gloss:["やまださん=Yamada-san", "から=from (source marker)", "にほんご=the Japanese language", "を=object marker", "ならいました=learned (past of ならいます)"],isNew:false}
+],
+quizzes:[
+{type:"A",q:"ぎんこう ___ おかねをかりました。 (I borrowed money from the bank.)",options:["から", "に", "で", "を"],answer:"から",hint:"Organization → only から"},
+{type:"A",q:"わたしはせんせい ___ ほんをもらいました。 (I received a book from my teacher.)",options:["に", "で", "を", "の"],answer:"に",hint:"Person you receive from → に (or から)"},
+{type:"A",q:"ミラさんににほんごを ___ 。 (I learn Japanese from Mira-san.)",options:["ならいます", "おしえます", "あげます", "かします"],answer:"ならいます",hint:"Learning from a person = receiving side → ならいます"},
+{type:"B",q:"'I borrowed a camera from Gupta-san.' in Japanese?",options:["グプタさんにカメラをかりました。", "グプタさんにカメラをかしました。", "グプタさんにカメラをもらいました。", "グプタさんでカメラをかりました。"],answer:"グプタさんにカメラをかりました。",hint:"かります = borrow; person + に (or から)"},
+{type:"B",q:"'I received a card from the university.' in Japanese?",options:["だいがくからカードをもらいました。", "だいがくにカードをもらいました。", "だいがくからカードをあげました。", "だいがくでカードをもらいました。"],answer:"だいがくからカードをもらいました。",hint:"University = organization → only から"}
 ]
 },
 
