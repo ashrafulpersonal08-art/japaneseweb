@@ -9579,10 +9579,14 @@ grammarSrsPickFilter = filter;
 _setFilterBtns('#grammarSrsPickFilterBar .srs-filter-btn','gsfp',filter,srsFilterActiveClass(filter));
 renderGrammarPickGrid();
 }
+function fixParticleHa(t){
+return t.replace(/(さん|かれ|かのじょ|わたし|あなた|ぼく|これ|それ|あれ|ここ|そこ|あそこ|だれ|私|彼女|彼|先生|学生)は/g,'$1わ');
+}
 function speakJapanese(text) {
 if (!window.speechSynthesis || muted) return;
 speechSynthesis.cancel();
 text = text.replace(/はちだい/g,'ハチダイ').replace(/はちまい/g,'ハチマイ').replace(/はん/g,'ハン').replace(/はは/g,'ハハ');
+text = fixParticleHa(text);
 const u = new SpeechSynthesisUtterance(text);
 u.lang = 'ja-JP';
 u.rate = 0.9;
@@ -9625,6 +9629,7 @@ const _finish = () => { if (_done) return; _done = true; if (callback && _spoken
 try {
 speechSynthesis.cancel();
 if (isJp) text = text.replace(/はちだい/g,'ハチダイ').replace(/はちまい/g,'ハチマイ').replace(/はん/g,'ハン').replace(/はは/g,'ハハ');
+if (isJp) text = fixParticleHa(text);
 const u = new SpeechSynthesisUtterance(text);
 u.lang   = isJp ? 'ja-JP' : 'en-US';
 u.rate   = 0.9;
@@ -11493,7 +11498,8 @@ window.renderKanjiPickBody=function(){
   updateKanjiPickCount();
 };
 })();
-</script></body></html>
+</script><style id="mobileJoinFix">@media(max-width:600px){.quick-join-btn{top:4.5rem!important;right:auto!important;left:1.1rem!important;min-width:0!important;height:34px!important;padding:0 .7rem!important;font-size:.74rem!important;border-radius:12px!important}}</style>
+</body></html>
 
 <style>
 .kanji-reading-line{display:flex;flex-wrap:wrap;gap:.35rem;justify-content:center;margin:.45rem 0;color:var(--text-muted);font-size:.82rem}
