@@ -9580,7 +9580,10 @@ _setFilterBtns('#grammarSrsPickFilterBar .srs-filter-btn','gsfp',filter,srsFilte
 renderGrammarPickGrid();
 }
 function fixParticleHa(t){
-return t.replace(/(さん|かれ|かのじょ|わたし|あなた|ぼく|これ|それ|あれ|ここ|そこ|あそこ|だれ|私|彼女|彼|先生|学生)は/g,'$1わ');
+t=t.replace(/(さん|かれ|かのじょ|わたし|あなた|ぼく|これ|それ|あれ|ここ|そこ|あそこ|だれ|私|彼女|彼|先生|学生)は/g,'$1わ');
+t=t.replace(/([ぁ-ゟ゠-ヿ一-龯])は(?=どんな|どう|どこ|どれ|どの|なに|なん|いくら|いつ|いま|きょう|あした|この|その|あの|いい|おお|ちい|あたら|ふる|たか|やす|ひろ|せま|おいし|とても|あまり|ぜんぜん|いつも|まだ|もう)/g,'$1わ');
+t=t.replace(/([ぁ-ゟ゠-ヿ一-龯])へ(?=いき|いく|かえ|きま|くる|もど|いこ|いって|かよ)/g,'$1え');
+return t;
 }
 function speakJapanese(text) {
 if (!window.speechSynthesis || muted) return;
