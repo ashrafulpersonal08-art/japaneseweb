@@ -8639,12 +8639,13 @@ card.style.cssText = 'position:fixed;inset:0;background:rgba(4,6,15,.96);z-index
 const jaEsc = ex.ja.replace(/'/g,"\\'");
 const enEsc = ex.en.replace(/'/g,"\\'");
 card.innerHTML = `
-<div style="width:100%;max-width:520px"><div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:1rem"><button class="back-btn" style="font-size:.85rem;padding:.4rem .85rem" onclick="closeGrammarDetailOverlay()">← Back</button><button class="home-btn" onclick="closeGrammarDetailOverlay();goHomeFromAnywhere()">🏠 Home</button></div><div class="gx-hero"><div class="vx-jp gx-hero-rule">${rule.rule}</div><div class="kx-hero-mean gx-hero-mean">${rule.meaning}</div><div class="kx-hero-tags"><span class="kx-chip kun gx-formula">${rule.formula}</span></div></div>${rule.note?grammarNoteHtml(rule.note):''}${gSpeedBarHtml()}<div class="grammar-example-block">${grammarKindBadge(ex)}<div class="g-ja" style="display:flex;align-items:center;gap:.5rem;flex-wrap:wrap"><span>${ex.ja.replace(/。(?=.)/g,'。<br>')}</span><button class="vocab-speak-inline" onclick="speakJapanese('${jaEsc}')" title="Hear Japanese" style="flex-shrink:0">🔊</button></div><div class="g-en" style="display:flex;align-items:center;gap:.5rem;flex-wrap:wrap;margin-top:.35rem">${ex.en}<button class="vocab-speak-inline" onclick="speakEnglish('${enEsc}')" title="Hear English" style="flex-shrink:0;width:26px;height:26px;font-size:.78rem">🔈</button></div>${ex.ctx?'<div class="g-ctx">↳ <span class="g-ctx-jp">'+ex.ctx+'</span>'+(ex.ctxEn?' <span class="g-ctx-en">('+ex.ctxEn+')</span>':'')+'</div>':''}<div class="grammar-gloss-row" style="margin-top:.45rem">${ex.gloss.map(g=>{const[jp,en]=g.split('=');return`<span class="grammar-gloss-chip"><strong>${jp}</strong>${en?'='+en:''}</span>`;}).join('')}</div>${ex.note?grammarNoteHtml('⚠️ '+ex.note):''}${grammarAnsHtml(ex)}</div><div class="grammar-nav-dots">${rule.examples.map((_,i)=>`<div class="grammar-nav-dot${i===exIdx?' active':''}" onclick="renderGrammarDetailCard(grammarCurrentRule,${i})"></div>`).join('')}</div><div style="display:flex;gap:.6rem;margin-top:.5rem">
+<div style="width:100%;max-width:520px"><div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:1rem"><button class="back-btn" style="font-size:.85rem;padding:.4rem .85rem" onclick="closeGrammarDetailOverlay()">← Back</button><button class="home-btn" onclick="closeGrammarDetailOverlay();goHomeFromAnywhere()">🏠 Home</button></div><div class="gx-hero"><div class="vx-jp gx-hero-rule">${rule.rule}</div><div class="kx-hero-mean gx-hero-mean">${rule.meaning}</div><div class="kx-hero-tags"><span class="kx-chip kun gx-formula">${rule.formula}</span></div></div>${rule.note?grammarNoteHtml(rule.note):''}${gSpeedBarHtml()}<div class="grammar-example-block">${grammarKindBadge(ex)}<div class="g-ja" style="display:flex;align-items:center;gap:.5rem;flex-wrap:wrap"><span>${ex.ja.replace(/。(?=.)/g,'。<br>')}</span><button class="vocab-speak-inline" onclick="gSayJa()" title="Hear Japanese" style="flex-shrink:0">🔊</button></div>${gSayLineHtml(ex)}<div class="g-en" style="display:flex;align-items:center;gap:.5rem;flex-wrap:wrap;margin-top:.35rem">${ex.en}<button class="vocab-speak-inline" onclick="speakEnglish('${enEsc}')" title="Hear English" style="flex-shrink:0;width:26px;height:26px;font-size:.78rem">🔈</button></div>${ex.ctx?'<div class="g-ctx">↳ <span class="g-ctx-jp">'+ex.ctx+'</span>'+(ex.ctxEn?' <span class="g-ctx-en">('+ex.ctxEn+')</span>':'')+'</div>':''}<div class="grammar-gloss-row" style="margin-top:.45rem">${ex.gloss.map(g=>{const[jp,en]=g.split('=');return`<span class="grammar-gloss-chip"><strong>${jp}</strong>${en?'='+en:''}</span>`;}).join('')}</div>${ex.note?grammarNoteHtml('⚠️ '+ex.note):''}${grammarAnsHtml(ex)}</div><div class="grammar-nav-dots">${rule.examples.map((_,i)=>`<div class="grammar-nav-dot${i===exIdx?' active':''}" onclick="renderGrammarDetailCard(grammarCurrentRule,${i})"></div>`).join('')}</div><div style="display:flex;gap:.6rem;margin-top:.5rem">
 ${exIdx>0?`<button class="btn btn-secondary" style="flex:1" onclick="renderGrammarDetailCard(grammarCurrentRule,${exIdx-1})">← Prev</button>`:'<div style="flex:1"></div>'}
 ${exIdx<total-1?`<button class="btn btn-primary" style="flex:1" onclick="renderGrammarDetailCard(grammarCurrentRule,${exIdx+1})">Next →</button>`:`<button class="btn btn-primary" style="flex:1;background:linear-gradient(135deg,rgba(57,255,20,.5),rgba(0,200,100,.3))" onclick="closeGrammarDetailOverlay()">✓ Done</button>`}
 </div></div>`;
 document.body.appendChild(card);
 window._gCurEx=ex;
+_gWb++;
 grammarAutoSpeak(ex);
 }
 function setGrammarMode(mode) {
@@ -9689,10 +9690,61 @@ return t;
 }
 var _gSpeedMul=(function(){try{var v=parseFloat(localStorage.getItem('hm_g_speed'));return [.5,.75,1,1.25].indexOf(v)>-1?v:1;}catch(e){return 1;}})();
 function _gRate(base){return document.querySelector('.grammar-detail-overlay')?Math.max(.1,Math.min(2,base*_gSpeedMul)):base;} // speed applies only inside the Grammar Learn detail card
-function gSpeedBarHtml(){return '<div class="g-speed"><span class="g-speed-lbl">🐢 Voice speed</span>'+[.5,.75,1,1.25].map(function(v){return '<button data-spd="'+v+'" class="'+(v===_gSpeedMul?'on':'')+'" onclick="setGrammarSpeed('+v+')">'+(v===1?'Normal':v+'×')+'</button>';}).join('')+'</div>';}
+function gSpeedBarHtml(){return '<div class="g-speed"><span class="g-speed-lbl">🐢 Voice speed</span>'+[.5,.75,1,1.25].map(function(v){return '<button data-spd="'+v+'" class="'+(v===_gSpeedMul?'on':'')+'" onclick="setGrammarSpeed('+v+')">'+(v===1?'Normal':v+'×')+'</button>';}).join('')+'<button class="g-wbw" onclick="gWordByWord()" title="Say each word separately, then the full sentence">🔤 Word by word</button></div>';}
 function setGrammarSpeed(v){_gSpeedMul=v;try{localStorage.setItem('hm_g_speed',String(v));}catch(e){}
 document.querySelectorAll('.grammar-detail-overlay .g-speed button').forEach(function(b){b.classList.toggle('on',parseFloat(b.dataset.spd)===v);});
-try{sndClick();}catch(e){} if(window._gCurEx&&window._gCurEx.ja)speakJapanese(window._gCurEx.ja);}
+try{sndClick();}catch(e){} if(window._gCurEx&&window._gCurEx.ja)gSayJa();}
+/* ---- Grammar Learn pronunciation: split the sentence into words/particles using the example's gloss list ---- */
+function gTokens(ex){
+ var ja=(ex&&ex.ja)||'',gl=(ex&&ex.gloss)||[],pos=0,out=[];
+ function push(t,k){if(t)out.push({t:t,k:k});}
+ gl.forEach(function(g){
+  var w=String(g).split('=')[0].replace(/[~\u301c\s]/g,'');
+  if(!w||/[\/+()\uff08\uff09]/.test(w))return;
+  var i=ja.indexOf(w,pos);if(i<0)return;
+  if(i>pos)push(ja.slice(pos,i),'x');
+  push(w,(w==='\u306f'||w==='\u3078'||w==='\u3092')?'p':'w');pos=i+w.length;
+ });
+ if(pos<ja.length)push(ja.slice(pos),'x');
+ out.forEach(function(o){if(o.k==='x'&&(o.t==='\u306f'||o.t==='\u3078'||o.t==='\u3092'))o.k='p';});   /* a lone は/へ/を left between glossed words = particle (some glosses omit it) */
+ return out;
+}
+function gPron(tok){
+ var t=tok.t;
+ if(tok.k==='p')return t==='\u306f'?'\u308f':(t==='\u3078'?'\u3048':t);          /* particle: wa / e / o */
+ if(tok.k==='w'){
+  if(/^(\u3053\u3093\u306b\u3061\u306f|\u3053\u3093\u3070\u3093\u306f)$/.test(t))return t.slice(0,-1)+'\u308f';   /* konnichiwa / konbanwa */
+  t=t.replace(/\u3078\u306f/g,'\u3048\u308f');                                                                        /* he+wa written together = e wa */
+  t=t.replace(/(\u3067\u306f|\u306b\u306f|\u3068\u306f|\u304b\u3089\u306f|\u307e\u3067\u306f)/g,function(m){return m.slice(0,-1)+'\u308f';});   /* dewa / niwa / towa / karawa / madewa */
+  t=t.replace(/(.)\u3078(\u3082?)$/,'$1\u3048$2');                                                                    /* word ends in へ / へも (どこへも) = particle e */
+  return t.replace(/[\u306f\u3078]/g,function(c){return c==='\u306f'?'\u30cf':'\u30d8';});                       /* word-internal ha / he -> katakana so they are never read as particles */
+ }
+ return t;
+}
+function gSpeechText(ex){
+ if(!ex||!ex.ja)return '';
+ if(ex.say)return ex.say;   /* explicit voice text from the data (skill rule S8) wins */
+ var tk=gTokens(ex);if(!tk.length)return ex.ja;
+ return tk.map(gPron).join(' ').replace(/\s+([\u3002\u3001\uff1f\uff01?!])/g,'$1');
+}
+function gSayLineHtml(ex){
+ if(ex&&ex.say)return '<div class="g-say">🔊 Voice reads: <b>'+ex.say+'</b></div>';
+ var tk=gTokens(ex);if(!tk.length)return '';
+ var parts=tk.filter(function(t){return !/^[\u3002\u3001\uff1f\uff01?!\s]+$/.test(t.t);}).map(function(t){var p=gPron(t);return p!==t.t?'<b>'+p+'</b>':p;});
+ return '<div class="g-say">🔊 Voice reads: '+parts.join(' \u00b7 ')+'</div>';
+}
+function gSayJa(){if(window._gCurEx)speakJapanese(gSpeechText(window._gCurEx));}
+var _gWb=0;
+function gWordByWord(){
+ var ex=window._gCurEx;if(!ex)return;var my=++_gWb,i=0;
+ var toks=gTokens(ex).filter(function(t){return !/^[\u3002\u3001\uff1f\uff01?!\s]+$/.test(t.t);});
+ try{sndClick();}catch(e){}
+ (function next(){
+  if(my!==_gWb||!document.querySelector('.grammar-detail-overlay'))return;
+  if(i<toks.length)speakThen(gPron(toks[i++]),true,next);
+  else speakThen(gSpeechText(ex),true,null);
+ })();
+}
 function speakJapanese(text) {
 if (!window.speechSynthesis || muted) return;
 speechSynthesis.cancel();
@@ -11645,6 +11697,8 @@ body[data-quality="low"] #sakuraCanvas{display:none!important}
 .g-speed-lbl{font-size:.72rem;font-weight:800;color:var(--text-muted);margin-right:.2rem}
 .g-speed button{padding:.25rem .75rem;border-radius:999px;border:1px solid rgba(255,255,255,.18);background:rgba(255,255,255,.05);color:var(--text-muted);font-size:.72rem;font-weight:800;cursor:pointer;font-family:inherit}
 .g-speed button:hover{border-color:var(--cyan,#35d7e8);color:var(--text)}
+.g-say{font-size:.74rem;color:var(--text-muted);margin-top:.3rem}
+.g-say b{color:var(--cyan,#35d7e8)}
 .g-speed button.on{background:var(--cyan,#35d7e8);color:#04060f;border-color:transparent}
 /* shuffle row */
 .lp-shuffle{display:none;gap:.4rem;margin-top:.45rem;flex-wrap:wrap}
@@ -12714,7 +12768,7 @@ window.__learnRomaji=romaji;
    using speakThen's onend-chained queue so question doesn't cancel before it plays. */
 function grammarAutoSpeak(ex){
  if(!window.speechSynthesis||muted)return;
- const texts=[ex.ja].concat((ex.ans||[]).map(function(a){return a.ja;}));
+ const texts=[gSpeechText(ex)].concat((ex.ans||[]).map(function(a){return a.say||a.ja;}));
  let idx=0;
  (function next(){
   if(idx>=texts.length)return;
