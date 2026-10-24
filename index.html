@@ -11558,6 +11558,19 @@ window.renderKanjiPickBody=function(){
 body[data-quality="low"] *,body[data-quality="low"] *::before,body[data-quality="low"] *::after{animation-iteration-count:1!important;backdrop-filter:none!important;-webkit-backdrop-filter:none!important;will-change:auto!important}
 body[data-quality="low"] #auroraLayer,body[data-quality="low"] #gridLines,body[data-quality="low"] #cursorGlow{animation:none!important}
 body[data-quality="low"] #sakuraCanvas{display:none!important}
+/* kanji practice mode: English only, click to reveal/hide */
+.kx-card.learn-practice-hidden{cursor:pointer}
+.kx-card.learn-practice-hidden .kx-char,
+.kx-card.learn-practice-hidden .kx-chips,
+.kx-card.learn-practice-hidden .kx-meta,
+.kx-card.learn-practice-hidden .kx-audio,
+.kx-card.learn-practice-hidden .kx-foot,
+.kx-card.learn-practice-hidden .kx-chev,
+.kx-card.learn-practice-hidden .learn-cb{display:none!important}
+.kx-card.learn-practice-hidden .kx-card-top{justify-content:center;text-align:center}
+.kx-card.learn-practice-hidden .kx-info{flex:0 1 auto;text-align:center}
+.kx-card.learn-practice-hidden .kx-mean{font-size:1.35rem;padding:.9rem .5rem;padding-right:.5rem}
+.kx-card:not(.learn-practice-hidden) .kx-chev{cursor:pointer}
 </style></body></html>
 
 <style>
@@ -12212,7 +12225,7 @@ window.renderKanjiLearnList=function(){
  box.className='vocab-cards-list kx-list';box.innerHTML='';
  if(unl&&typeof srsBulkUpdateToolbar==='function')srsBulkUpdateToolbar('kanji');
  if(!filtered.length){box.innerHTML='<div class="srs-empty" style="grid-column:1/-1"><span class="srs-empty-icon">漢</span><div class="srs-empty-title">Nothing here</div><div>'+(learnQ('kanji')?'No kanji matches your search':'No kanji to show')+'</div></div>';return;}
- filtered.forEach(function(k){
+ _renderChunkedEl(box, filtered, function(k){
   var on=P(k.onyomi)[0],kun=P(k.kunyomi)[0];
   var cb=unl?'<div class="learn-cb" onclick="event.stopPropagation()"><input type="checkbox" '+(srsBulkSelected.kanji.has(k.id)?'checked ':'')+'onchange="srsBulkToggleItem(\'kanji\',\''+k.id+'\',this)"></div>':'';
   var card=document.createElement('div');card.className='kx-card';
@@ -12221,8 +12234,12 @@ window.renderKanjiLearnList=function(){
    +'</div><div class="kx-meta">'+((k.strokes||[]).length?(k.strokes.length+' strokes · '):'')+(k.examples||[]).length+' examples · '+allReadings(k)+' readings</div>'
    +'<div class="kx-audio"><button class="kx-mini" onclick="event.stopPropagation();kxSay(\''+jsq(k.say||k.kanji)+'\')">🔊 JP</button><button class="kx-mini" onclick="event.stopPropagation();kxSayEn(\''+jsq(k.english)+'\')">🔊 EN</button></div></div><div class="kx-chev">›</div></div>'
    +'<div class="kx-foot" onclick="event.stopPropagation()">'+kxEdTag(k)+kanjiSrsTagHTML(k.id)+'<div class="kx-foot-r">'+markBtnHTML(k.id,'kxMarkList')+srsTransferControlHTML('kanji',k.id)+'</div></div>';
-  card.onclick=function(){kxOpen(k.id);};
-  box.appendChild(card);
+  card.onclick=function(){ if(kanjiLearnPracticeMode){ flipLearnPracticeCard(card); } else { kxOpen(k.id); } };
+  if(kanjiLearnPracticeMode){
+   card.classList.add('learn-practice-hidden');
+   var _ch=card.querySelector('.kx-chev'); if(_ch){ _ch.style.cursor='pointer'; _ch.onclick=function(e){ e.stopPropagation(); kxOpen(k.id); }; }
+  }
+  return card;
  });
 };
 window.kxMarkList=function(id){var td=kanjiItemBucket(id)==='today';if(td)kanjiSrsResetToNew(id,null);else kanjiSrsMarkLearnCard(id,null);};
