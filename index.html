@@ -9982,27 +9982,32 @@ function gWordByWord(){
   else speakThen(gSpeechText(ex),true,null);
  })();
 }
+/* Reliable TTS: split long / multi-sentence text into chunks, keep refs (stops GC cut-off), delay speak() after cancel() (Chrome drops it otherwise), kill auto-read chains so they can't cancel a manual tap */
+var _ttsKeep=[],_ttsTok=0;
+function _ttsChunks(t){var parts=String(t).match(/[^\u3002\uff01\uff1f!?.]+[\u3002\uff01\uff1f!?.]*/g)||[String(t)];var out=[],cur='';parts.forEach(function(p){if((cur+p).length>60&&cur){out.push(cur);cur=p;}else cur+=p;});if(cur)out.push(cur);return out.filter(function(x){return x.trim();});}
+function _ttsSay(text,lang,rate,voice){
+ var my=++_ttsTok;_gAutoTok++;_gWb++;
+ speechSynthesis.cancel();
+ var chunks=_ttsChunks(text);_ttsKeep=[];
+ setTimeout(function(){
+  if(my!==_ttsTok)return;
+  try{speechSynthesis.resume();}catch(e){}
+  chunks.forEach(function(c){
+   var u=new SpeechSynthesisUtterance(c);u.lang=lang;u.rate=rate;u.volume=sfxVol/100;if(voice)u.voice=voice;
+   _ttsKeep.push(u);speechSynthesis.speak(u);
+  });
+ },60);
+}
+var _gAutoTok=0;
 function speakJapanese(text) {
 if (!window.speechSynthesis || muted) return;
-speechSynthesis.cancel();
-text = text.replace(/はちだい/g,'ハチダイ').replace(/はちまい/g,'ハチマイ').replace(/はん/g,'ハン').replace(/はは/g,'ハハ');
+text = text.replace(/\u306f\u3061\u3060\u3044/g,'\u30cf\u30c1\u30c0\u30a4').replace(/\u306f\u3061\u307e\u3044/g,'\u30cf\u30c1\u30de\u30a4').replace(/\u306f\u3093/g,'\u30cf\u30f3').replace(/\u306f\u306f/g,'\u30cf\u30cf');
 text = fixParticleHa(text);
-const u = new SpeechSynthesisUtterance(text);
-u.lang = 'ja-JP';
-u.rate = _gRate(0.9);
-u.volume = sfxVol / 100;
-const v = getJaV(); if (v) u.voice = v;
-speechSynthesis.speak(u);
+_ttsSay(text,'ja-JP',_gRate(0.9),getJaV());
 }
 function speakEnglish(text) {
 if (!window.speechSynthesis || muted) return;
-speechSynthesis.cancel();
-const u = new SpeechSynthesisUtterance(text);
-u.lang = 'en-US';
-u.rate = _gRate(0.9);
-u.volume = sfxVol / 100;
-const v = getEnV(); if (v) u.voice = v;
-speechSynthesis.speak(u);
+_ttsSay(text,'en-US',_gRate(0.9),getEnV());
 }
 function cleanForTTS(text, isJp) {
 const pause = isJp ? '、' : ', ';
@@ -10040,7 +10045,7 @@ u.onerror = () => { if (_spokenEpoch === _mpTaskEpoch) scheduleMatchTask(_finish
 speechSynthesis.speak(u);
 // Safety net: on some browsers/webviews the onend/onerror event never fires,
 // which would otherwise freeze the game forever waiting to advance.
-const safetyMs = Math.min(6000, Math.max(1500, (text||'').length * 180 + 800));
+const safetyMs = Math.min(20000, Math.max(1500, ((text||'').length * 180 + 800) / Math.max(.3, _gRate(.9)/.9)));
 scheduleMatchTask(_finish, safetyMs);
 } catch(e) {
 _finish();
@@ -13008,9 +13013,9 @@ window.__learnRomaji=romaji;
 function grammarAutoSpeak(ex){
  if(!window.speechSynthesis||muted)return;
  const texts=[gSpeechText(ex)].concat((ex.ans||[]).map(function(a){return a.say||a.ja;}));
- let idx=0;
+ let idx=0;const my=++_gAutoTok;
  (function next(){
-  if(idx>=texts.length)return;
+  if(my!==_gAutoTok||idx>=texts.length)return;
   const t=texts[idx++];
   speakThen(t,true,next);
  })();
