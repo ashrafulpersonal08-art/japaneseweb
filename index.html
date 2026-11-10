@@ -1057,7 +1057,7 @@ words: [
 { id:"n5_788", japanese:"あまり", english:"not much / not very (with a negative)", dateAdded:"2026-10-25" },
 { id:"n5_789", japanese:"ぜんぜん", english:"not at all (with a negative)", dateAdded:"2026-10-25" },
 { id:"n5_790", japanese:"わかります", english:"to understand", dateAdded:"2026-10-25" },
-{ id:"n5_791", japanese:"あります", english:"to exist / to have (inanimate things)", dateAdded:"2026-10-25" },
+{ id:"n5_791", japanese:"あります", english:"to exist / to have (Non being)", dateAdded:"2026-10-25" },
 { id:"n5_792", japanese:"から", english:"because (reason)", dateAdded:"2026-10-25" },
 { id:"n5_793", japanese:"どうして", english:"why", dateAdded:"2026-10-25" },
 { id:"n5_794", japanese:"います", english:"to exist / to have (people and animals)", dateAdded:"2026-10-25" },
@@ -1087,7 +1087,7 @@ words: [
 { id:"n5_818", japanese:"パソコン", english:"personal computer", dateAdded:"2026-11-09" },
 { id:"n5_819", japanese:"パンチ", english:"punch (hole punch)", dateAdded:"2026-11-09" },
 { id:"n5_820", japanese:"ホッチキス", english:"stapler", dateAdded:"2026-11-09" },
-{ id:"n5_821", japanese:"セロテープ", english:"Scotch tape / clear adhesive tape", dateAdded:"2026-11-09" },
+{ id:"n5_821", japanese:"セロテープ", english:"Scotch tape", dateAdded:"2026-11-09" },
 { id:"n5_822", japanese:"けしゴム", english:"eraser", dateAdded:"2026-11-09" },
 { id:"n5_823", japanese:"かみ", english:"paper", dateAdded:"2026-11-09" },
 { id:"n5_824", japanese:"や", english:"among others", dateAdded:"2026-11-09" },
@@ -10209,6 +10209,7 @@ renderGrammarPickGrid();
 }
 function fixParticleHa(t){
 t=t.replace(/(^|[\s、。やとのへ])はし(?=$|[\s、。やとをがはもでにのです])/g,'$1ハし'); /* はし (chopsticks / bridge) = hashi, never washi */
+t=t.replace(/(^|[\s、。やとのへにではがもを])へや(?=$|[\s、。やとをがはもでにのですえ])/g,'$1ヘや'); /* へや = heya; protect word-initial へ from particle reading */
 t=t.replace(/(さん|かれ|かのじょ|わたし|あなた|ぼく|これ|それ|あれ|ここ|そこ|あそこ|だれ|私|彼女|彼|先生|学生)は/g,'$1わ');
 t=t.replace(/([ぁ-ゟ゠-ヿ一-龯])は(?=どんな|どう|どこ|どれ|どの|なに|なん|いくら|いつ|いま|きょう|あした|この|その|あの|いい|おお|ちい|あたら|ふる|たか|やす|ひろ|せま|おいし|とても|あまり|ぜんぜん|いつも|まだ|もう)/g,'$1わ');
 t=t.replace(/([ぁ-ゟ゠-ヿ一-龯])へ(?=いき|いく|かえ|きま|くる|もど|いこ|いって|かよ)/g,'$1え');
